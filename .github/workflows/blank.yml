@@ -34,4 +34,9 @@ jobs:
       - name: Run a multi-line script
         run: |
           git checkout hello
-          git diff main hello
+          git diff main hello > ${{ github.workspace }}/diff.txt
+          
+      - uses: actions/upload-artifact@v3
+        with:
+          name: prod-diff
+          path: ${{ github.workspace }}/diff.txt        
