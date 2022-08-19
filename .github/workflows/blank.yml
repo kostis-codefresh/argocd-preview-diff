@@ -40,3 +40,10 @@ jobs:
         with:
           name: prod-diff
           path: ${{ github.workspace }}/diff.txt        
+      - id: comment
+        uses: unsplash/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: ${{ github.workspace }}/diff.txt 
+          check_for_duplicate_msg: false          
