@@ -14,8 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.issue.pull_request && github.event.comment.body == '/diff'}}
     steps:
-      - name: 'Checkout'
-        uses: actions/checkout@master
+      - uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch    
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: 'Kustomize Build'
         uses: karancode/kustomize-github-action@master
         with:
