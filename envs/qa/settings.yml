@@ -14,7 +14,7 @@ spec:
         - name: CACHE_SIZE
           value: "2048kb"
         - name: PAGE_LIMIT
-          value: "25"
+          value: "35"
         - name: SORTING
           value: "ascending"    
         - name: N_BUCKETS
