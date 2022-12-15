@@ -42,11 +42,11 @@ jobs:
            diff -U 7 staging-eu-pr.yml staging-eu-target.yml > staging-eu-changes.diff || true
       - run: |
           wget https://raw.githubusercontent.com/kostis-codefresh/kustomize-github-preview-diff/main/pr-comment-template.txt
-          sed  -e "/DESCRIPTION_HERE/QA_Changes/" pr-comment-template.txt > qa-diff.txt
+          sed  's/DESCRIPTION_HERE/QA-Changes/g' pr-comment-template.txt > qa-diff.txt
           sed  -e "/DIFF_HERE/{r qa-changes.diff" -e "d}" qa-diff.txt > qa-result.txt
-          sed  -e "/DESCRIPTION_HERE/Staging_Changes/" pr-comment-template.txt > staging-diff.txt
+          sed  's/DESCRIPTION_HERE/Staging-Changes/g' pr-comment-template.txt > staging-diff.txt
           sed  -e "/DIFF_HERE/{r staging-eu-changes.diff" -e "d}" staging-diff.txt > staging-result.txt
-          sed  -e "/DESCRIPTION_HERE/Prod_Changes/" pr-comment-template.txt > prod-diff.txt
+          sed  's/DESCRIPTION_HERE/Prod-Changes/g' pr-comment-template.txt > prod-diff.txt
           sed  -e "/DIFF_HERE/{r prod-us-changes.diff" -e "d}" prod-diff.txt > prod-result.txt
           cat qa-result.txt staging-result.txt prod-result.txt > comment.txt
 
