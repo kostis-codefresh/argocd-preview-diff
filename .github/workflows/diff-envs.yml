@@ -24,11 +24,11 @@ jobs:
           path: target
           ref: ${{ github.event.pull_request.base.ref }}
 
-      - run: |
-           ls -la
-           ls -la pr
-           ls -la target
-      - run: diff pr/envs/qa/settings.yml target/envs/qa/settings.yml > changes2.diff || true
+#       - run: |
+#            ls -la
+#            ls -la pr
+#            ls -la target
+#       - run: diff pr/envs/qa/settings.yml target/envs/qa/settings.yml > changes2.diff || true
       - run: |
            curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
            kustomize build pr/envs/qa/ > qa-pr.yml
