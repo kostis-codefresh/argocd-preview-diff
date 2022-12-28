@@ -16,7 +16,9 @@ spec:
         - name: DB_USER
           value: "prod_username"
         - name: DB_PASSWORD
-          value: "prod_password"                     
+          value: "prod_password"
+        - name: CACHE_SIZE
+          value: "1024kb"                               
         livenessProbe:
           httpGet:
             path: /health

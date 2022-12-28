@@ -3,4 +3,4 @@ kind: Component
 
 patchesStrategicMerge:
 - region.yml
-- settings.yml
+
